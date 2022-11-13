@@ -1,6 +1,7 @@
 const db = require('../models/db')
 const { response, request } = require('express');
 const Users = require('../models/users');
+const users = require('../models/users');
 
 
 
@@ -19,7 +20,7 @@ async function getUsers(req, res) {
 async function getUser(req =request, res = response) {
     const id = req.params.id
     const users = await Users.findById( id);
-    console.log(`Ha salido ${users}`)
+    console.log(`El Objeto ha salido ${users}`)
     if (users !=null) {
         res.json(users);
     } else {
@@ -27,7 +28,6 @@ async function getUser(req =request, res = response) {
     }
 
 }
-
 
 async function addUser(req = request, res = response) {
     const { Nombre, Apellidos, Nick, Email, Contraseña, Fecha_de_creacion} = req.body;
@@ -40,7 +40,6 @@ async function addUser(req = request, res = response) {
         users
     });
 }
-
 
 async function deleteUser(req, res){
     const itemId = req.params.id;
@@ -59,4 +58,4 @@ async function editUser(req = request, res = response) {
     res.json(updateUsers);
 }
 
-module.exports = { getUsers, getUser, addUser, deleteUser, editUser }
+module.exports = { getUsers, getUser, addUser, deleteUser, editUser, }
