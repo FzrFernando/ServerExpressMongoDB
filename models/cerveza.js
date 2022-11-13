@@ -1,6 +1,5 @@
 const { Schema, model } = require('mongoose');
-
-const BaresSchema = Schema({
+const CervezaSchema = Schema({
     Nombre: {
         type: String,
         required: [true, 'El nombre es obligatorio'],
@@ -11,10 +10,17 @@ const BaresSchema = Schema({
         required: [true, 'La descripción es obligatoria'],
         
     },
-    Calles: {
+    Graduación: {
         type: String,
-        required: [true, 'La calle es obligatoria'],
+        required: [true, 'La graduación es obligatoria'],
+    },
+    Envase: {
+        type: String,
+    },
+    Precio: {
+        type: String,
+        required: true
     },
 });
 
-module.exports = model( 'Bares', BaresSchema );
+module.exports = model( 'Cerveza', CervezaSchema );

@@ -1,12 +1,12 @@
 const express = require('express')
 const router = express.Router()
 
-const {getBares, getBar, addBar, deleteBar, editBar} = require('../controllers/bares')
+const {addBar,deleteBar, getBar,editBar, getBares} = require('../controllers/bares')
 
+router.post('/', addBar)
 router.get('/', getBares)
 router.get('/:id', getBar)
-router.post('/', addBar)
 router.delete('/:id', deleteBar)
-router.put('/:id', editBar)
+router.put('/:id',editBar)
 
 module.exports = router
